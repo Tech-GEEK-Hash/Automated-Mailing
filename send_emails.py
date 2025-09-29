@@ -15,7 +15,7 @@ sender_password = "enter password recieved in Whatsapp group"
 email_subject = "Collaboration Proposal: INSTRUO 14 × {name}"
 
 email_body = """
-Dear {name},
+Dear {name} Team,
 
 We are delighted to invite {name} to collaborate with INSTRUO 14, the annual techno-management festival of IIEST Shibpur, scheduled from October 31st to November 2nd, 2025.
 
@@ -94,4 +94,5 @@ def send_personalized_emails():
 
 if __name__ == "__main__":
     send_personalized_emails()
+
 
