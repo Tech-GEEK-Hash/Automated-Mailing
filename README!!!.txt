@@ -9,7 +9,7 @@ This is a one time process for each domain.
 
 1. Copy the prompt and paste in ChatGPT "change the following content type to [your domain (say robotics)]. Make sure the {name} doesn't gets affected because that is being used in automated Python script. Here is the email content
 
-Dear {name} Team,
+Dear {name},
 
 We are delighted to invite {name} to collaborate with INSTRUO 14, the annual techno-management festival of IIEST Shibpur, scheduled from October 31st to November 2nd, 2025.
 
@@ -29,5 +29,6 @@ Contact: 7367999558
 2. Paste the generated email content back in email_body variable in send_emails.py script. Make sure that you don't affect the inverted commas ("").
 3. Copy only the company name and email addresses from the spreadsheet and paste it in contacts.xlsx file. (DO NOT CHANGE THE Name AND Email COLUMN NAME AS IT WOULD RESULT IN ERROR.)
 4. Right click in the folder and click open terminal then type python send_email.py
+
 
 Sit back and cazzzzzz!!!
