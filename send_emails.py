@@ -9,7 +9,7 @@ import os
 
 # --- Your Credentials and Email Details ---
 sender_email = "sponsorship.instruo@gmail.com"
-sender_password = "enter password"
+sender_password = "enter password recieved in Whatsapp group"
 
 # --- Email Content ---
 email_subject = "Collaboration Proposal: INSTRUO 14 × {name}"
@@ -31,8 +31,8 @@ Sponsorship Associate
 Team INSTRUO
 Contact: 7367999558"""
 
-# Path to your attachment (keep file in same folder or give full path)
-attachment_path = "INSTRUO_Brochure.pdf"  # Change filename if needed
+# Paths to your attachments
+attachments = ["INSTRUO_Brochure.pdf", "Events_Brochure.pdf"]  # Add your second file here
 
 def send_personalized_emails():
     # Load Excel contacts
@@ -68,19 +68,20 @@ def send_personalized_emails():
                 # Personalize body
                 message.attach(MIMEText(email_body.format(name=receiver_name), "plain"))
 
-                # Attach file if exists
-                if os.path.exists(attachment_path):
-                    with open(attachment_path, "rb") as attachment:
-                        part = MIMEBase("application", "octet-stream")
-                        part.set_payload(attachment.read())
-                    encoders.encode_base64(part)
-                    part.add_header(
-                        "Content-Disposition",
-                        f"attachment; filename={os.path.basename(attachment_path)}",
-                    )
-                    message.attach(part)
-                else:
-                    print(f"⚠️ Attachment '{attachment_path}' not found. Sending email without it.")
+                # Attach multiple files
+                for attachment_path in attachments:
+                    if os.path.exists(attachment_path):
+                        with open(attachment_path, "rb") as attachment:
+                            part = MIMEBase("application", "octet-stream")
+                            part.set_payload(attachment.read())
+                        encoders.encode_base64(part)
+                        part.add_header(
+                            "Content-Disposition",
+                            f"attachment; filename={os.path.basename(attachment_path)}",
+                        )
+                        message.attach(part)
+                    else:
+                        print(f"⚠️ Attachment '{attachment_path}' not found. Skipping this file.")
 
                 # Send email
                 server.sendmail(sender_email, receiver_email, message.as_string())
@@ -93,4 +94,3 @@ def send_personalized_emails():
 
 if __name__ == "__main__":
     send_personalized_emails()
-
