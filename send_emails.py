@@ -9,7 +9,7 @@ import os
 
 # --- Your Credentials and Email Details ---
 sender_email = "sponsorship.instruo@gmail.com"
-sender_password = "yawicpjuchlhcjkk"
+sender_password = "enter password"
 
 # --- Email Content ---
 email_subject = "Collaboration Proposal: INSTRUO 14 × {name}"
@@ -93,3 +93,4 @@ def send_personalized_emails():
 
 if __name__ == "__main__":
     send_personalized_emails()
+
